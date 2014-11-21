@@ -1,4 +1,4 @@
-var db = null;
+// var db = null;
 
 var example = angular.module('starter', ['ionic', 'ngCordova'])
     .run(function($ionicPlatform, $cordovaSQLite) {
@@ -9,24 +9,26 @@ var example = angular.module('starter', ['ionic', 'ngCordova'])
             if(window.StatusBar) {
                 StatusBar.styleDefault();
             }
-            db = $cordovaSQLite.openDB({ name: "my.db" });
-            $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
+            // db = $cordovaSQLite.openDB({ name: "my.db" });
+            // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
         });
     });
 
 example.controller("ExampleController", function($scope, $cordovaSQLite) {
 
     $scope.insert = function(firstname, lastname) {
-        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
+        alert(firstname);
+        /*var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
         $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
             console.log("INSERT ID -> " + res.insertId);
         }, function (err) {
             console.error(err);
-        });
+        });*/
     }
 
     $scope.select = function(lastname) {
-        var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
+        alert(lastname);
+        /*var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
         $cordovaSQLite.execute(db, query, [lastname]).then(function(res) {
             if(res.rows.length > 0) {
                 alert("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
@@ -38,7 +40,7 @@ example.controller("ExampleController", function($scope, $cordovaSQLite) {
         }, function (err) {
             alert(err);
             console.error(err);
-        });
+        });*/
     }
 
 });
