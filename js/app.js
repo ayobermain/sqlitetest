@@ -1,6 +1,6 @@
 var db = null;
 
-var example = angular.module('starter', ['ionic', 'ngCordova'])
+var example = angular.module('starter', ['ionic'])
     .run(function($ionicPlatform, $cordovaSQLite) {
         $ionicPlatform.ready(function() {
             if(window.cordova && window.cordova.plugins.Keyboard) {
