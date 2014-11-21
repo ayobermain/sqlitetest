@@ -2,7 +2,14 @@
 angular.module('ngCordova', [
   'ngCordova.plugins'
 ]);
-angular.module('ngCordova.plugins', [	 'qlite']);//#### Begin Individual Plugin Code####// install   :      cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+
+angular.module('ngCordova.plugins', [
+	 'ngCordova.plugins.sqlite'
+]);
+
+//#### Begin Individual Plugin Code####
+
+// install   :      cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
 // link      :      https://github.com/brodysoft/Cordova-SQLitePlugin/blob/master/README.md
 
 angular.module('ngCordova.plugins.sqlite', [])
