@@ -11,8 +11,12 @@ var example = angular.module('starter', ['ionic'])
             }
             // db = $cordovaSQLite.openDB({ name: "my.db" });
             // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
-            db = window.sqlitePlugin.openDatabase({name: "my.db"});
-            db.transaction(populateDB, errorCB, successCB);
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                alert('deviceready');
+             db = window.sqlitePlugin.openDatabase("Database", "1.0", "Demo", -1);
+             db.transaction(populateDB, errorCB, successCB);
+            }
             function populateDB(tx) {
              tx.executeSql('DROP TABLE IF EXISTS test_table');
              tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data1 text, data2 integer, svgImage text)');
