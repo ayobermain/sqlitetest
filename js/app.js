@@ -1,7 +1,7 @@
 var db = null;
 
 var example = angular.module('starter', ['ionic'])
-    .run(function($ionicPlatform, $cordovaSQLite) {
+    .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             if(window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -39,7 +39,7 @@ var example = angular.module('starter', ['ionic'])
         });
     });
 
-example.controller("ExampleController", function($scope, $cordovaSQLite) {
+example.controller("ExampleController", function($scope) {
 
     $scope.insert = function(firstname, lastname) {
         // var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
